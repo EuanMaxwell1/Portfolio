@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Euan Maxwell - personal portfolio and profile.">
+  <title>Euan Maxwell | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17221f;
+      --muted: #61716b;
+      --paper: #f2f0e8;
+      --panel: #faf9f4;
+      --line: #d7ddd3;
+      --accent: #e96743;
+      --accent-dark: #b94427;
+      --green: #315f52;
+      --shadow: 0 18px 45px rgba(28, 48, 39, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.5;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      opacity: .35;
+      background-image: linear-gradient(rgba(49, 95, 82, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(49, 95, 82, .06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark, .eyebrow, .meta, .availability {
+      font-family: "DM Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .wordmark { color: var(--green); font-size: .82rem; font-weight: 500; }
+    nav { display: flex; gap: 28px; }
+    nav a { color: var(--muted); font-size: .9rem; text-decoration: none; }
+    nav a:hover { color: var(--accent-dark); }
+
+    main { padding: 92px 0 70px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 72px;
+      align-items: end;
+      min-height: 520px;
+    }
+
+    .eyebrow { margin: 0 0 24px; color: var(--accent-dark); font-size: .75rem; }
+    h1 { max-width: 720px; margin: 0; font-size: clamp(3.6rem, 9vw, 7.5rem); line-height: .91; letter-spacing: -.075em; }
+    .intro { max-width: 480px; margin: 32px 0 0; color: var(--muted); font-size: 1.1rem; }
+
+    .profile-card {
+      position: relative;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+
+    .profile-card::before {
+      position: absolute;
+      top: -9px;
+      left: 34px;
+      width: 74px;
+      height: 20px;
+      content: "";
+      background: rgba(233, 103, 67, .75);
+      transform: rotate(-4deg);
+    }
+
+    .avatar {
+      display: grid;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      place-items: center;
+      color: var(--panel);
+      background: var(--green);
+      font-size: clamp(4rem, 9vw, 7rem);
+      font-weight: 600;
+      letter-spacing: -.1em;
+    }
+
+    .card-label { margin: 18px 0 0; color: var(--muted); font-size: .85rem; }
+    .card-label strong { display: block; margin-top: 4px; color: var(--ink); font-size: 1.1rem; }
+
+    .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 17px;
+      color: var(--panel);
+      background: var(--ink);
+      font-size: .9rem;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { background: var(--accent-dark); transform: translateY(-3px); }
+    .button.secondary { color: var(--ink); background: transparent; border: 1px solid var(--line); }
+    .button.secondary:hover { background: var(--panel); }
+
+    .details { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 70px 0 0; }
+    .detail { padding: 25px 0; border-top: 2px solid var(--green); }
+    .detail h2 { margin: 0 0 15px; font-size: 1.25rem; }
+    .detail p { max-width: 430px; margin: 0; color: var(--muted); }
+    .availability { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: .7rem; }
+    .availability::before { width: 8px; height: 8px; content: ""; background: #6aa35c; border-radius: 50%; }
+
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
+    footer a { color: var(--accent-dark); }
+
+    @media (max-width: 700px) {
+      .shell { width: min(100% - 28px, 560px); }
+      header { padding: 20px 0; }
+      nav { gap: 14px; }
+      main { padding: 60px 0 50px; }
+      .hero { display: flex; flex-direction: column; gap: 48px; align-items: stretch; min-height: 0; }
+      h1 { font-size: clamp(3.5rem, 18vw, 6rem); }
+      .profile-card { width: min(100%, 300px); align-self: flex-end; }
+      .details { grid-template-columns: 1fr; padding-top: 58px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="wordmark" href="#top">EM / portfolio</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="profile-heading">
+        <div>
+          <p class="eyebrow">Hello, I'm</p>
+          <h1 id="profile-heading">Euan<br>Maxwell.</h1>
+          <p class="intro">A curious builder focused on thoughtful work, clear ideas, and useful digital experiences.</p>
+          <div class="links">
+            <a class="button" href="https://www.linkedin.com/in/euan-maxwell-748660352" target="_blank" rel="noreferrer">View LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="#about">More about me <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile photo">
+          <div class="avatar" aria-label="Euan Maxwell initials">EM</div>
+          <p class="card-label">Based in<br><strong>United Kingdom</strong></p>
+        </aside>
+      </section>
+
+      <section class="details" id="about" aria-label="About and contact">
+        <article class="detail">
+          <p class="eyebrow">01 / About</p>
+          <h2>Making things with intention.</h2>
+          <p>This space is ready for your story, experience, projects, and the work you want people to remember.</p>
+        </article>
+        <article class="detail" id="contact">
+          <p class="eyebrow">02 / Connect</p>
+          <h2>Let's start a conversation.</h2>
+          <p class="availability">Open to new connections</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Euan Maxwell</span>
+      <a href="https://www.linkedin.com/in/euan-maxwell-748660352" target="_blank" rel="noreferrer">linkedin.com/in/euan-maxwell-748660352</a>
+    </footer>
+  </div>
+</body>
+</html>
