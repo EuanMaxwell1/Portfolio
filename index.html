@@ -101,15 +101,12 @@
     }
 
     .avatar {
-      display: grid;
+      display: block;
       width: 100%;
       aspect-ratio: 1 / 1;
-      place-items: center;
-      color: var(--panel);
+      object-fit: cover;
       background: var(--green);
-      font-size: clamp(4rem, 9vw, 7rem);
-      font-weight: 600;
-      letter-spacing: -.1em;
+      border: 1px solid var(--line);
     }
 
     .card-label { margin: 18px 0 0; color: var(--muted); font-size: .85rem; }
@@ -178,7 +175,11 @@
         </div>
 
         <aside class="profile-card" aria-label="Profile photo">
-          <div class="avatar" aria-label="Euan Maxwell initials">EM</div>
+          <img
+            class="avatar"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=36bc0b59ad&attid=0.1&permmsgid=msg-a:r-3837124552305608452&th=1a07d419eb0cd987&view=fimg&fur=ip&permmsgid=msg-a:r-3837124552305608452&sz=s0-l75-ft&attbid=ANGjdJ_hV49ICHHACoHgjoSsQoAm7jDdt60c4imLcO6PyKaOK1c9gVufbK_TMZF3hEa4JZmeOL08cLYLbkHKA4rg3r0j77y4a31HMYDyopOw-zLI5tfh_pScBkgdphw&disp=emb&realattid=1C9DCD14-C63E-472D-91DD-1BA7A06ABC0E&zw"
+            alt="Euan Maxwell portrait"
+          >
         </aside>
       </section>
 
