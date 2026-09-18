@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Euan Maxwell portrait placeholder</title>
+  <desc id="desc">A stylized placeholder portrait with initials EM.</desc>
+  <rect width="640" height="640" fill="#101715"/>
+  <rect x="30" y="30" width="580" height="580" rx="32" fill="#18231f" stroke="#304039"/>
+  <circle cx="320" cy="250" r="110" fill="#8ac7ad"/>
+  <path d="M170 520c20-96 86-150 150-150s130 54 150 150" fill="#f1845d"/>
+  <text x="320" y="610" text-anchor="middle" fill="#edf3ee" font-family="Arial, sans-serif" font-size="46" font-weight="700">EM</text>
+</svg>
